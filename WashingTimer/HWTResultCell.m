@@ -56,6 +56,26 @@
         self.fastIconView.frame = f;
         width = CGRectGetMaxX(self.fastIconView.frame);
     }
+    
+    [self.resultBackgroundView addSubview:self.timeStartLabel];
+    [self.timeStartLabel sizeToFit];
+    f = self.timeStartLabel.frame;
+    f.origin.x = 42.f;
+    f.origin.y = 11.f;
+    self.timeStartLabel.frame = f;
+    
+    [self.resultBackgroundView addSubview:self.arrowImageView];
+    f = self.arrowImageView.frame;
+    f.origin.x = CGRectGetMaxX(self.timeStartLabel.frame) + 5;
+    f.origin.y = self.timeStartLabel.frame.origin.y + (self.timeStartLabel.bounds.size.height - f.size.height) / 2;
+    self.arrowImageView.frame = f;
+
+    [self.resultBackgroundView addSubview:self.timeEndLabel];
+    [self.timeEndLabel sizeToFit];
+    f = self.timeEndLabel.frame;
+    f.origin.x = CGRectGetMaxX(self.arrowImageView.frame) + 5;
+    f.origin.y = self.timeStartLabel.frame.origin.y;
+    self.timeEndLabel.frame = f;
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
@@ -89,6 +109,33 @@
         _easyIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_easy"]];
     }
     return _easyIconView;
+}
+
+- (UILabel *)timeStartLabel {
+    if (!_timeStartLabel) {
+        _timeStartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        _timeStartLabel.backgroundColor = [UIColor clearColor];
+        _timeStartLabel.font = [UIFont boldSystemFontOfSize:24];
+        _timeStartLabel.textColor = UIColorFromRGB(0x3c4849);
+    }
+    return _timeStartLabel;
+}
+
+- (UILabel *)timeEndLabel {
+    if (!_timeEndLabel) {
+        _timeEndLabel = [UILabel new];
+        _timeEndLabel.backgroundColor = [UIColor clearColor];
+        _timeEndLabel.font = [UIFont boldSystemFontOfSize:24];
+        _timeEndLabel.textColor = UIColorFromRGB(0x3c4849);
+    }
+    return _timeEndLabel;
+}
+
+- (UIImageView *)arrowImageView {
+    if (!_arrowImageView) {
+        _arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_time_arrow"]];
+    }
+    return _arrowImageView;
 }
 
 #pragma mark - Setter

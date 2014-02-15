@@ -12,11 +12,13 @@
 
 @property (weak, nonatomic) IBOutlet UIView *resultBackgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeStartLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeEndLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeIntervalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *routeLabel;
 @property (weak, nonatomic) IBOutlet UIView *verticalLineView;
+
+@property (nonatomic) UILabel *timeStartLabel;
+@property (nonatomic) UIImageView *arrowImageView;
+@property (nonatomic) UILabel *timeEndLabel;
 
 @property (nonatomic) BOOL showsFastIcon;
 @property (nonatomic) BOOL showsEasyIcon;

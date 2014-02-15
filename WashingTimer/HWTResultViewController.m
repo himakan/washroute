@@ -7,8 +7,11 @@
 //
 
 #import "HWTResultViewController.h"
-#import "HWTResultCell.h"
+
 #import <DejalActivityView/DejalActivityView.h>
+#import <MKNetworkKit/MKNetworkKit.h>
+
+#import "HWTResultCell.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -94,11 +97,9 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [NSTimer scheduledTimerWithTimeInterval:1.0f
-                                     target:self
-                                   selector:@selector(startLoading)
-                                   userInfo:nil
-                                    repeats:NO];
+    if (!self.plansData) {
+        [self startLoading];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,15 +113,24 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (void)startLoading {
     [DejalBezelActivityView activityViewForView:self.view withLabel:@"読み込み中..."];
 
-    [NSTimer scheduledTimerWithTimeInterval:3.0f
-                                     target:self
-                                   selector:@selector(endLoading)
-                                   userInfo:nil
-                                    repeats:NO];
+    
+    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:@"wu-tang.sakura.ne.jp"];
+    MKNetworkOperation *op = [engine operationWithPath:@"/ohd/washRoute.php"];
+    [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
+        [self endLoading];
+        
+        NSDictionary *result = [completedOperation responseJSON];
+        self.plansData = result[@"plans"];
+        [self.tableView reloadData];
+        
+    } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
+        [self endLoading];
+    }];
+    [engine enqueueOperation:op];
 }
 
 - (void)endLoading {
-    [DejalActivityView removeView];
+    [DejalBezelActivityView removeViewAnimated:YES];
 }
 
 #pragma mark - Table view data source
@@ -140,8 +150,21 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HWTResultCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
-    
     cell.numberLabel.text = [NSString stringWithFormat:@"%@", @(indexPath.row + 1)];
+    
+    NSDictionary *data = self.plansData[indexPath.row];
+    NSDate *beginTime = [NSDate dateWithTimeIntervalSince1970:[data[@"beginTime"] doubleValue]];
+    NSDate *endTime = [NSDate dateWithTimeIntervalSince1970:[data[@"endTime"] doubleValue]];
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"H:mm";
+    
+    cell.timeStartLabel.text = [dateFormatter stringFromDate:beginTime];
+    cell.timeEndLabel.text = [dateFormatter stringFromDate:endTime];
+    
+    NSTimeInterval duration = [endTime timeIntervalSinceDate:beginTime];
+    NSInteger hour = (NSInteger)(duration / 60.f / 60.f);
+    cell.timeIntervalLabel.text = [NSString stringWithFormat:@"%@hour", @(hour)];
+    
     cell.showsFastIcon = YES;
     cell.showsEasyIcon = YES;
     
