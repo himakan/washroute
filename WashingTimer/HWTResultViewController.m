@@ -61,7 +61,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [self.tableView addSubview:self.logoView];
     [self.tableView addSubview:self.startTimeLabel];
     [self.tableView addSubview:self.segmentedControl];
-    self.tableView.contentInset = UIEdgeInsetsMake(195, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
     
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"H:m";
@@ -74,7 +74,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     
     CGRect f = self.logoView.frame;
     f.origin.x = (self.view.bounds.size.width - f.size.width) / 2;
-    f.origin.y = -153;
+    f.origin.y = -170;
     self.logoView.frame = f;
     
     [self.startTimeLabel sizeToFit];

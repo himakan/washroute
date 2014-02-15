@@ -15,9 +15,9 @@
 
 @implementation HWTResultCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        self.selectedBackgroundView = [[UIImageView alloc] initWithImage:[[UIImage alloc] init]];
     }
     return self;
 }
@@ -25,27 +25,26 @@
 - (void)drawRect:(CGRect)rect {
     
     if (self.showsEasyIcon) {
-        [self addSubview:self.easyIconView];
+        [self.resultBackgroundView addSubview:self.easyIconView];
     } else {
         [self.easyIconView removeFromSuperview];
     }
     
     if (self.showsFastIcon) {
-        [self addSubview:self.fastIconView];
+        [self.resultBackgroundView addSubview:self.fastIconView];
     } else {
         [self.fastIconView removeFromSuperview];
     }
-}
 
-- (void)layoutSubviews {
     CGRect f;
     
+    [self.routeLabel sizeToFit];
     CGFloat width = CGRectGetMaxX(self.routeLabel.frame);
     
     if (self.showsEasyIcon) {
         f = self.easyIconView.frame;
         f.origin.x = width + 5;
-        f.origin.y = self.routeLabel.frame.origin.y + (self.routeLabel.frame.size.height - f.size.height) / 2;
+        f.origin.y = self.routeLabel.frame.origin.y + 5;
         self.easyIconView.frame = f;
         width = CGRectGetMaxX(self.easyIconView.frame);
     }
@@ -53,17 +52,28 @@
     if (self.showsFastIcon) {
         f = self.fastIconView.frame;
         f.origin.x = width + 5;
-        f.origin.y = self.routeLabel.frame.origin.y + (self.routeLabel.frame.size.height - f.size.height) / 2;
+        f.origin.y = self.routeLabel.frame.origin.y + 5;
         self.fastIconView.frame = f;
         width = CGRectGetMaxX(self.fastIconView.frame);
     }
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:highlighted animated:animated];
+    if (highlighted) {
+        [self applySelectedColorBackgroundView];
+    }
+}
 
-    // Configure the view for the selected state
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    if (selected) {
+        [self applySelectedColorBackgroundView];
+    }
+}
+
+- (void)applySelectedColorBackgroundView {
+    self.resultBackgroundView.backgroundColor = UIColorFromRGB(0x71999d);
 }
 
 #pragma mark - Getter
