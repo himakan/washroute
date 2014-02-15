@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7040E2C918AF0C66005C7BAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7040E2C818AF0C66005C7BAD /* Foundation.framework */; };
+		7040E2CB18AF0C66005C7BAD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7040E2CA18AF0C66005C7BAD /* CoreGraphics.framework */; };
+		7040E2CD18AF0C66005C7BAD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7040E2CC18AF0C66005C7BAD /* UIKit.framework */; };
+		7040E2D318AF0C66005C7BAD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7040E2D118AF0C66005C7BAD /* InfoPlist.strings */; };
+		7040E2D518AF0C66005C7BAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E2D418AF0C66005C7BAD /* main.m */; };
+		7040E2D918AF0C66005C7BAD /* HWTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E2D818AF0C66005C7BAD /* HWTAppDelegate.m */; };
+		7040E2DC18AF0C66005C7BAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7040E2DA18AF0C66005C7BAD /* Main.storyboard */; };
+		7040E2DF18AF0C66005C7BAD /* HWTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E2DE18AF0C66005C7BAD /* HWTViewController.m */; };
+		7040E2E118AF0C66005C7BAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7040E2E018AF0C66005C7BAD /* Images.xcassets */; };
+		7040E2E818AF0C66005C7BAD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7040E2E718AF0C66005C7BAD /* XCTest.framework */; };
+		7040E2E918AF0C66005C7BAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7040E2C818AF0C66005C7BAD /* Foundation.framework */; };
+		7040E2EA18AF0C66005C7BAD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7040E2CC18AF0C66005C7BAD /* UIKit.framework */; };
+		7040E2F218AF0C66005C7BAD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7040E2F018AF0C66005C7BAD /* InfoPlist.strings */; };
+		7040E2F418AF0C66005C7BAD /* WashingTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E2F318AF0C66005C7BAD /* WashingTimerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7040E2EB18AF0C66005C7BAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7040E2BD18AF0C66005C7BAD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7040E2C418AF0C66005C7BAD;
+			remoteInfo = WashingTimer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7040E2C518AF0C66005C7BAD /* WashingTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WashingTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7040E2C818AF0C66005C7BAD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7040E2CA18AF0C66005C7BAD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7040E2CC18AF0C66005C7BAD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7040E2D018AF0C66005C7BAD /* WashingTimer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WashingTimer-Info.plist"; sourceTree = "<group>"; };
+		7040E2D218AF0C66005C7BAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7040E2D418AF0C66005C7BAD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7040E2D618AF0C66005C7BAD /* WashingTimer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WashingTimer-Prefix.pch"; sourceTree = "<group>"; };
+		7040E2D718AF0C66005C7BAD /* HWTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWTAppDelegate.h; sourceTree = "<group>"; };
+		7040E2D818AF0C66005C7BAD /* HWTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWTAppDelegate.m; sourceTree = "<group>"; };
+		7040E2DB18AF0C66005C7BAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7040E2DD18AF0C66005C7BAD /* HWTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWTViewController.h; sourceTree = "<group>"; };
+		7040E2DE18AF0C66005C7BAD /* HWTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWTViewController.m; sourceTree = "<group>"; };
+		7040E2E018AF0C66005C7BAD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7040E2E618AF0C66005C7BAD /* WashingTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WashingTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7040E2E718AF0C66005C7BAD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7040E2EF18AF0C66005C7BAD /* WashingTimerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WashingTimerTests-Info.plist"; sourceTree = "<group>"; };
+		7040E2F118AF0C66005C7BAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7040E2F318AF0C66005C7BAD /* WashingTimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WashingTimerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7040E2C218AF0C66005C7BAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7040E2CB18AF0C66005C7BAD /* CoreGraphics.framework in Frameworks */,
+				7040E2CD18AF0C66005C7BAD /* UIKit.framework in Frameworks */,
+				7040E2C918AF0C66005C7BAD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7040E2E318AF0C66005C7BAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7040E2E818AF0C66005C7BAD /* XCTest.framework in Frameworks */,
+				7040E2EA18AF0C66005C7BAD /* UIKit.framework in Frameworks */,
+				7040E2E918AF0C66005C7BAD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7040E2BC18AF0C66005C7BAD = {
+			isa = PBXGroup;
+			children = (
+				7040E2CE18AF0C66005C7BAD /* WashingTimer */,
+				7040E2ED18AF0C66005C7BAD /* WashingTimerTests */,
+				7040E2C718AF0C66005C7BAD /* Frameworks */,
+				7040E2C618AF0C66005C7BAD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7040E2C618AF0C66005C7BAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7040E2C518AF0C66005C7BAD /* WashingTimer.app */,
+				7040E2E618AF0C66005C7BAD /* WashingTimerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7040E2C718AF0C66005C7BAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7040E2C818AF0C66005C7BAD /* Foundation.framework */,
+				7040E2CA18AF0C66005C7BAD /* CoreGraphics.framework */,
+				7040E2CC18AF0C66005C7BAD /* UIKit.framework */,
+				7040E2E718AF0C66005C7BAD /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7040E2CE18AF0C66005C7BAD /* WashingTimer */ = {
+			isa = PBXGroup;
+			children = (
+				7040E2D718AF0C66005C7BAD /* HWTAppDelegate.h */,
+				7040E2D818AF0C66005C7BAD /* HWTAppDelegate.m */,
+				7040E2DA18AF0C66005C7BAD /* Main.storyboard */,
+				7040E2DD18AF0C66005C7BAD /* HWTViewController.h */,
+				7040E2DE18AF0C66005C7BAD /* HWTViewController.m */,
+				7040E2E018AF0C66005C7BAD /* Images.xcassets */,
+				7040E2CF18AF0C66005C7BAD /* Supporting Files */,
+			);
+			path = WashingTimer;
+			sourceTree = "<group>";
+		};
+		7040E2CF18AF0C66005C7BAD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7040E2D018AF0C66005C7BAD /* WashingTimer-Info.plist */,
+				7040E2D118AF0C66005C7BAD /* InfoPlist.strings */,
+				7040E2D418AF0C66005C7BAD /* main.m */,
+				7040E2D618AF0C66005C7BAD /* WashingTimer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7040E2ED18AF0C66005C7BAD /* WashingTimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				7040E2F318AF0C66005C7BAD /* WashingTimerTests.m */,
+				7040E2EE18AF0C66005C7BAD /* Supporting Files */,
+			);
+			path = WashingTimerTests;
+			sourceTree = "<group>";
+		};
+		7040E2EE18AF0C66005C7BAD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7040E2EF18AF0C66005C7BAD /* WashingTimerTests-Info.plist */,
+				7040E2F018AF0C66005C7BAD /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7040E2C418AF0C66005C7BAD /* WashingTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7040E2F718AF0C66005C7BAD /* Build configuration list for PBXNativeTarget "WashingTimer" */;
+			buildPhases = (
+				7040E2C118AF0C66005C7BAD /* Sources */,
+				7040E2C218AF0C66005C7BAD /* Frameworks */,
+				7040E2C318AF0C66005C7BAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WashingTimer;
+			productName = WashingTimer;
+			productReference = 7040E2C518AF0C66005C7BAD /* WashingTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7040E2E518AF0C66005C7BAD /* WashingTimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7040E2FA18AF0C66005C7BAD /* Build configuration list for PBXNativeTarget "WashingTimerTests" */;
+			buildPhases = (
+				7040E2E218AF0C66005C7BAD /* Sources */,
+				7040E2E318AF0C66005C7BAD /* Frameworks */,
+				7040E2E418AF0C66005C7BAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7040E2EC18AF0C66005C7BAD /* PBXTargetDependency */,
+			);
+			name = WashingTimerTests;
+			productName = WashingTimerTests;
+			productReference = 7040E2E618AF0C66005C7BAD /* WashingTimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7040E2BD18AF0C66005C7BAD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HWT;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Himakan;
+				TargetAttributes = {
+					7040E2E518AF0C66005C7BAD = {
+						TestTargetID = 7040E2C418AF0C66005C7BAD;
+					};
+				};
+			};
+			buildConfigurationList = 7040E2C018AF0C66005C7BAD /* Build configuration list for PBXProject "WashingTimer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7040E2BC18AF0C66005C7BAD;
+			productRefGroup = 7040E2C618AF0C66005C7BAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7040E2C418AF0C66005C7BAD /* WashingTimer */,
+				7040E2E518AF0C66005C7BAD /* WashingTimerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7040E2C318AF0C66005C7BAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7040E2E118AF0C66005C7BAD /* Images.xcassets in Resources */,
+				7040E2D318AF0C66005C7BAD /* InfoPlist.strings in Resources */,
+				7040E2DC18AF0C66005C7BAD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7040E2E418AF0C66005C7BAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7040E2F218AF0C66005C7BAD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7040E2C118AF0C66005C7BAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7040E2D918AF0C66005C7BAD /* HWTAppDelegate.m in Sources */,
+				7040E2DF18AF0C66005C7BAD /* HWTViewController.m in Sources */,
+				7040E2D518AF0C66005C7BAD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7040E2E218AF0C66005C7BAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7040E2F418AF0C66005C7BAD /* WashingTimerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7040E2EC18AF0C66005C7BAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7040E2C418AF0C66005C7BAD /* WashingTimer */;
+			targetProxy = 7040E2EB18AF0C66005C7BAD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7040E2D118AF0C66005C7BAD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7040E2D218AF0C66005C7BAD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7040E2DA18AF0C66005C7BAD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7040E2DB18AF0C66005C7BAD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7040E2F018AF0C66005C7BAD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7040E2F118AF0C66005C7BAD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7040E2F518AF0C66005C7BAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7040E2F618AF0C66005C7BAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7040E2F818AF0C66005C7BAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WashingTimer/WashingTimer-Prefix.pch";
+				INFOPLIST_FILE = "WashingTimer/WashingTimer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7040E2F918AF0C66005C7BAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WashingTimer/WashingTimer-Prefix.pch";
+				INFOPLIST_FILE = "WashingTimer/WashingTimer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7040E2FB18AF0C66005C7BAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WashingTimer.app/WashingTimer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WashingTimer/WashingTimer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WashingTimerTests/WashingTimerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		7040E2FC18AF0C66005C7BAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WashingTimer.app/WashingTimer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WashingTimer/WashingTimer-Prefix.pch";
+				INFOPLIST_FILE = "WashingTimerTests/WashingTimerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7040E2C018AF0C66005C7BAD /* Build configuration list for PBXProject "WashingTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7040E2F518AF0C66005C7BAD /* Debug */,
+				7040E2F618AF0C66005C7BAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7040E2F718AF0C66005C7BAD /* Build configuration list for PBXNativeTarget "WashingTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7040E2F818AF0C66005C7BAD /* Debug */,
+				7040E2F918AF0C66005C7BAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7040E2FA18AF0C66005C7BAD /* Build configuration list for PBXNativeTarget "WashingTimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7040E2FB18AF0C66005C7BAD /* Debug */,
+				7040E2FC18AF0C66005C7BAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7040E2BD18AF0C66005C7BAD /* Project object */;
+}
