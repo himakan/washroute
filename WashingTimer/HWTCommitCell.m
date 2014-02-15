@@ -1,14 +1,14 @@
 //
-//  HWTTimeLineEventCell.m
+//  HWTCommitCell.m
 //  WashingTimer
 //
-//  Created by yusuke on 2014/02/15.
+//  Created by stud on 2014/02/16.
 //  Copyright (c) 2014年 Himakan. All rights reserved.
 //
 
-#import "HWTTimeLineEventCell.h"
+#import "HWTCommitCell.h"
 
-@implementation HWTTimeLineEventCell
+@implementation HWTCommitCell
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
@@ -21,12 +21,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-
-- (void)setType:(HWTTimeLinePointType)type {
-    self.verticalTopLine.hidden = (type == kHWTTimeLinePointTypeBegin);
-    self.verticalBottomLine.hidden = (type == kHWTTimeLinePointTypeEnd);
-    self.pointView.type = type;
 }
 
 @end

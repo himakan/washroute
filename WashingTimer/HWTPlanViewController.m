@@ -8,13 +8,16 @@
 
 #import "HWTPlanViewController.h"
 
+#import <AMBlurView.h>
 #import "HWTTimeLineEventCell.h"
 #import "HWTTimeLinePointView.h"
 #import "HWTTimeLineWeatherCell.h"
+#import "HWTCommitCell.h"
 
 @interface HWTPlanViewController ()
+@property (nonatomic) AMBlurView *navigationBackgroundView;
 @property (nonatomic) NSArray *verticalLineViews;
-@property (nonatomic) NSArray *planData;
+@property (nonatomic) NSArray *timelineData;
 @end
 
 @implementation HWTPlanViewController
@@ -31,24 +34,77 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.title = @"プラン1";
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"H:mm";
+
+    NSMutableArray *timelineData = [NSMutableArray array];
+    for (NSDictionary *event in self.eventsData) {
+        
+        NSString *type;
+        if ([self.eventsData firstObject] == event) {
+            type = @"begin";
+        }
+        else {
+            type = @"circle";
+        }
+        
+        NSDate *beginTime = [NSDate dateWithTimeIntervalSince1970:[event[@"beginTime"] doubleValue]];
+        [timelineData addObject:@{@"cell" : @"event",
+                                  @"type" : type,
+                                  @"title" : event[@"title"],
+                                  @"time" : [dateFormatter stringFromDate:beginTime]}];
+        
+        [timelineData addObject:@{@"type" : @"weather",
+                                  @"weather" : event[@"weather"],
+                                  @"temparature" : event[@"temparature"],
+                                  @"windSpeed" : event[@"windSpeed"],
+                                  @"humidity" : event[@"humidity"],}];
+    }
+    
+    NSDictionary *event = [self.eventsData lastObject];
+    NSDate *finishTime = [NSDate dateWithTimeIntervalSince1970:[event[@"finishTime"] doubleValue]];
+
+    [timelineData addObject:@{@"cell" : @"event",
+                              @"type" : @"end",
+                              @"title" : @"洗濯終了",
+                              @"time" : [dateFormatter stringFromDate:finishTime]}];
+
+    
+    self.timelineData = timelineData;
     
     [self.tableView reloadData];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self drawVerticalEventLines];
-    });
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.navigationController.navigationBar insertSubview:self.navigationBackgroundView atIndex:0];\
+    UIEdgeInsets insets = UIEdgeInsetsMake(-20, 0, 0, 0);
+    self.navigationBackgroundView.frame = UIEdgeInsetsInsetRect(self.navigationController.navigationBar.bounds,
+                                                                insets);
+    
+    if (animated) {
+        self.navigationBackgroundView.alpha = 0;
+        [UIView animateWithDuration:0.3f animations:^{
+            self.navigationBackgroundView.alpha = 1;
+        }];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    if (!animated) {
+        [self.navigationBackgroundView removeFromSuperview];
+        return;
+    }
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        self.navigationBackgroundView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.navigationBackgroundView removeFromSuperview];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,40 +115,42 @@
 
 #pragma mark - Getter
 
-- (NSArray *)planData {
-    if (!_planData) {
-        _planData = @[@{@"cell" : @"event",  @"type" : @"begin", @"title" : @"洗濯開始", @"time" : @"10:00"},
-                      @{@"cell" : @"weather"},
-                      @{@"cell" : @"event", @"type" : @"circle", @"title" : @"洗濯終了、外干し", @"time" : @"10:40"},
-                      @{@"cell" : @"weather"},
-                      @{@"cell" : @"event", @"type" : @"circle", @"title" : @"雨なので部屋干し", @"time" : @"12:00"},
-                      @{@"cell" : @"weather"},
-                      @{@"cell" : @"event", @"type" : @"end", @"title" : @"乾燥終了", @"time" : @"18:00"},
-                      ];
+- (AMBlurView *)navigationBackgroundView {
+    if (!_navigationBackgroundView) {
+        _navigationBackgroundView = [AMBlurView new];
+        _navigationBackgroundView.userInteractionEnabled = NO;
     }
-    return _planData;
+    return _navigationBackgroundView;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return self.planData.count;
+    if (section == 1) {
+        return 1;
+    }
+    return self.timelineData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *kEventCellIdentifier = @"EventCell";
     static NSString *kWeatherCellIdentifier = @"WeatherCell";
+    static NSString *kCommitCellIdentifier = @"CommitCell";
     
-    NSDictionary *data = self.planData[indexPath.row];
+    if (indexPath.section == 1) {
+        HWTCommitCell *cell = [tableView dequeueReusableCellWithIdentifier:kCommitCellIdentifier
+                                                              forIndexPath:indexPath];
+        return cell;
+    }
+    
+    NSDictionary *data = self.timelineData[indexPath.row];
     
     UITableViewCell *cell;
     if ([data[@"cell"] isEqualToString:@"event"]) {
@@ -109,20 +167,45 @@
         else {
             type = kHWTTimeLinePointTypeCircle;
         }
-        ((HWTTimeLineEventCell *)cell).pointView.type = type;
-        ((HWTTimeLineEventCell *)cell).titleLabel.text = data[@"title"];
-        ((HWTTimeLineEventCell *)cell).timeLabel.text = data[@"time"];
+        
+        HWTTimeLineEventCell *eventCell = (HWTTimeLineEventCell *)cell;
+        eventCell.type = type;
+        eventCell.titleLabel.text = data[@"title"];
+        eventCell.timeLabel.text = data[@"time"];
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:kWeatherCellIdentifier
                                                forIndexPath:indexPath];
+        
+        HWTTimeLineWeatherCell *weatherCell = (HWTTimeLineWeatherCell *)cell;
+        weatherCell.mainLabel.text = [NSString stringWithFormat:@"%@ %@℃",
+                                      data[@"weather"],
+                                      data[@"temparature"]];
+        weatherCell.subLabel.text = [NSString stringWithFormat:@"風速: %@m/s 湿度: %@%%",
+                                     data[@"windSpeed"],
+                                     data[@"humidity"]];
+        
+        
+        NSString *weather = data[@"weather"];
+        if ([weather rangeOfString:@"くもり"].location != NSNotFound) {
+            weatherCell.weatherIconView.image = [UIImage imageNamed:@"icon_cloudy"];
+        }
+        else if ([weather rangeOfString:@"雨"].location != NSNotFound) {
+            weatherCell.weatherIconView.image = [UIImage imageNamed:@"icon_rainy"];
+        }
+        else {
+            weatherCell.weatherIconView.image = [UIImage imageNamed:@"icon_sunny"];
+        }
     }
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *data = self.planData[indexPath.row];
+    if (indexPath.section == 1) {
+        return 80.f;
+    }
+    NSDictionary *data = self.timelineData[indexPath.row];
     if ([data[@"cell"] isEqualToString:@"event"]) {
         return 50.f;
     }
@@ -131,111 +214,60 @@
     }
 }
 
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
+#pragma mark - UITableView Delegate
 
 #pragma mark - Private Methods
 
-- (void)drawVerticalEventLines {
-    
-    HWTTimeLineEventCell *beginCell = nil;
-    CGRect beginCellRect = CGRectZero;
-    
-    if (self.verticalLineViews) {
-        for (UIView *lineView in self.verticalLineViews) {
-            [lineView removeFromSuperview];
-        }
-    }
-    
-    NSMutableArray *views = [NSMutableArray array];
-    
-    for (NSInteger i = 0, len = [self.tableView numberOfRowsInSection:0]; i < len; i++) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        HWTTimeLineEventCell *cell = (HWTTimeLineEventCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-        if (![cell isMemberOfClass:[HWTTimeLineEventCell class]]) {
-            continue;
-        }
-        
-        if (!beginCell) {
-            beginCell = cell;
-            beginCellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-            continue;
-        }
-        
-        HWTTimeLineEventCell *endCell = cell;
-        CGRect rect = CGRectZero;
-        CGPoint beginCenter = [beginCell convertPoint:beginCell.pointView.center toView:beginCell];
-        beginCenter.y += beginCellRect.origin.y;
-        
-        CGRect endCellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-        CGPoint endCenter = [endCell convertPoint:endCell.pointView.center toView:endCell];
-        endCenter.y += endCellRect.origin.y;
-        
-        rect.origin.x = beginCenter.x - 2;
-        rect.size.width = 4;
-        rect.origin.y = beginCenter.y + beginCell.pointView.bounds.size.height / 2;
-        rect.size.height = endCenter.y - endCell.pointView.bounds.size.height / 2 - rect.origin.y;
-
-        UIView *lineView = [UIView new];
-        lineView.backgroundColor = UIColorFromRGB(0x73c6d3);
-        lineView.frame = rect;
-        [self.tableView addSubview:lineView];
-        [views addObject:lineView];
-        
-        beginCell = endCell;
-        beginCellRect = endCellRect;
-    }
-    self.verticalLineViews = views;
-}
+//- (void)drawVerticalEventLines {
+//    
+//    HWTTimeLineEventCell *beginCell = nil;
+//    CGRect beginCellRect = CGRectZero;
+//    
+//    if (self.verticalLineViews) {
+//        for (UIView *lineView in self.verticalLineViews) {
+//            [lineView removeFromSuperview];
+//        }
+//    }
+//    
+//    NSMutableArray *views = [NSMutableArray array];
+//    
+//    for (NSInteger i = 0, len = [self.tableView numberOfRowsInSection:0]; i < len; i++) {
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+//        HWTTimeLineEventCell *cell = (HWTTimeLineEventCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+//        if (![cell isMemberOfClass:[HWTTimeLineEventCell class]]) {
+//            continue;
+//        }
+//        
+//        if (!beginCell) {
+//            beginCell = cell;
+//            beginCellRect = [self.tableView rectForRowAtIndexPath:indexPath];
+//            continue;
+//        }
+//        
+//        HWTTimeLineEventCell *endCell = cell;
+//        CGRect rect = CGRectZero;
+//        CGPoint beginCenter = [beginCell convertPoint:beginCell.pointView.center toView:beginCell];
+//        beginCenter.y += beginCellRect.origin.y;
+//        
+//        CGRect endCellRect = [self.tableView rectForRowAtIndexPath:indexPath];
+//        CGPoint endCenter = [endCell convertPoint:endCell.pointView.center toView:endCell];
+//        endCenter.y += endCellRect.origin.y;
+//        
+//        rect.origin.x = beginCenter.x - 2;
+//        rect.size.width = 4;
+//        rect.origin.y = beginCenter.y + beginCell.pointView.bounds.size.height / 2;
+//        rect.size.height = endCenter.y - endCell.pointView.bounds.size.height / 2 - rect.origin.y;
+//
+//        UIView *lineView = [UIView new];
+//        lineView.backgroundColor = UIColorFromRGB(0x73c6d3);
+//        lineView.frame = rect;
+//        [self.tableView addSubview:lineView];
+//        [views addObject:lineView];
+//        
+//        beginCell = endCell;
+//        beginCellRect = endCellRect;
+//    }
+//    self.verticalLineViews = views;
+//}
 
 @end

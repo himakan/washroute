@@ -65,7 +65,7 @@
                                     <outlet property="routeLabel" destination="lti-FY-9TO" id="rBs-V3-H39"/>
                                     <outlet property="timeIntervalLabel" destination="fs9-Mv-IGX" id="Yh5-Dv-ctC"/>
                                     <outlet property="verticalLineView" destination="p6e-zH-R0u" id="Iws-i1-woz"/>
-                                    <segue destination="c46-7w-dgn" kind="push" id="g7e-Ee-0V7"/>
+                                    <segue destination="c46-7w-dgn" kind="push" identifier="detail" id="g7e-Ee-0V7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -80,7 +80,7 @@
         <scene sceneID="54y-Ip-bqW">
             <objects>
                 <tableViewController id="c46-7w-dgn" customClass="HWTPlanViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="22" sectionFooterHeight="22" id="OI8-Rb-Gkg">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="59" sectionHeaderHeight="22" sectionFooterHeight="22" id="OI8-Rb-Gkg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,7 +89,7 @@
                                 <rect key="frame" x="0.0" y="86" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RS3-dx-oLK" id="Rbo-Nr-mkM">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nkv-nY-G2I">
@@ -117,6 +117,16 @@
                                             <rect key="frame" x="63" y="11" width="45" height="28"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhW-TC-b1e">
+                                            <rect key="frame" x="85" y="0.0" width="2" height="11"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.45098039220000002" green="0.77647058820000003" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAo-5J-Hw4">
+                                            <rect key="frame" x="85" y="39" width="2" height="11"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.45098039220000002" green="0.77647058820000003" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -124,30 +134,68 @@
                                     <outlet property="pointView" destination="kfx-7R-UNK" id="EAF-1P-9Y9"/>
                                     <outlet property="timeLabel" destination="YN6-gp-3xi" id="PGN-k4-oMi"/>
                                     <outlet property="titleLabel" destination="Ju5-hg-HTx" id="jmw-qe-UEb"/>
+                                    <outlet property="verticalBottomLine" destination="kAo-5J-Hw4" id="E8z-1T-xtk"/>
+                                    <outlet property="verticalTopLine" destination="nhW-TC-b1e" id="Kh0-9I-Xxu"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherCell" rowHeight="80" id="K7B-V4-yRV" customClass="HWTTimeLineWeatherCell">
                                 <rect key="frame" x="0.0" y="136" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K7B-V4-yRV" id="bQB-iI-H5g">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K7B-V4-yRV" id="bQB-iI-H5g">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="晴れ  20℃" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFt-Lw-BA1">
-                                            <rect key="frame" x="119" y="23" width="194" height="21"/>
+                                            <rect key="frame" x="149" y="21" width="160" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bSt-81-Ybq">
+                                            <rect key="frame" x="119" y="18" width="26" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="風速: 8m/s  湿度: 59%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4U1-uT-rPs">
-                                            <rect key="frame" x="119" y="42" width="194" height="21"/>
+                                            <rect key="frame" x="119" y="45" width="194" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CFT-Qt-dti">
+                                            <rect key="frame" x="85" y="0.0" width="2" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.45098039215686275" green="0.77647058823529413" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mainLabel" destination="EFt-Lw-BA1" id="0li-E2-OPx"/>
+                                    <outlet property="subLabel" destination="4U1-uT-rPs" id="PbL-Mn-yGV"/>
+                                    <outlet property="weatherIconView" destination="bSt-81-Ybq" id="dAg-2t-0cr"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommitCell" rowHeight="80" id="cJf-wp-bLG" customClass="HWTCommitCell">
+                                <rect key="frame" x="0.0" y="216" width="320" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cJf-wp-bLG" id="cea-Lg-cyC">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9u-Fx-3sW">
+                                            <rect key="frame" x="60" y="15" width="200" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.45098039220000002" green="0.77647058820000003" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="このプランでいく">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="commitButton" destination="S9u-Fx-3sW" id="eNC-Bm-OCG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>

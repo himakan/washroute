@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *weatherLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 
+@property (nonatomic, copy) NSArray *eventsData;
+
 @end

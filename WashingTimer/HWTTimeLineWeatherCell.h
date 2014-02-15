@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface HWTTimeLineWeatherCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *mainLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherIconView;
+
 
 @end

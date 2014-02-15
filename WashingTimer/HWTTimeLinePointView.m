@@ -28,8 +28,6 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    self.layer.sublayers = nil;
-    
     if (self.type == kHWTTimeLinePointTypeBegin ||
         self.type == kHWTTimeLinePointTypeEnd) {
         

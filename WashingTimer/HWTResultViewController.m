@@ -11,6 +11,7 @@
 #import <DejalActivityView/DejalActivityView.h>
 #import <MKNetworkKit/MKNetworkKit.h>
 
+#import "HWTPlanViewController.h"
 #import "HWTResultCell.h"
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
@@ -202,6 +203,20 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         _segmentedControl.selectedSegmentIndex = 0;
     }
     return _segmentedControl;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)cell {
+    if ([segue.identifier isEqualToString:@"detail"]) {
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        NSDictionary *data = self.plansData[indexPath.row];
+        
+        HWTPlanViewController *planViewController = segue.destinationViewController;
+        planViewController.title = [NSString stringWithFormat:@"プラン%@", @(indexPath.row + 1)];
+        planViewController.eventsData = data[@"events"];
+    }
 }
 
 @end

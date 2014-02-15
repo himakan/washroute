@@ -34,6 +34,7 @@
 		7040E32918AFCD05005C7BAD /* icon_cloudy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7040E32618AFCD05005C7BAD /* icon_cloudy@2x.png */; };
 		7040E32A18AFCD05005C7BAD /* icon_rainy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7040E32718AFCD05005C7BAD /* icon_rainy@2x.png */; };
 		7040E32B18AFCD05005C7BAD /* icon_sunny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7040E32818AFCD05005C7BAD /* icon_sunny@2x.png */; };
+		A1934FEC18B0130800ED4388 /* HWTCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1934FEB18B0130800ED4388 /* HWTCommitCell.m */; };
 		BD37A5AC990B421996C36D7D /* libPods-WashingTimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B8B1F6CE0E34731BEFC820C /* libPods-WashingTimer.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,8 @@
 		7040E32718AFCD05005C7BAD /* icon_rainy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_rainy@2x.png"; sourceTree = "<group>"; };
 		7040E32818AFCD05005C7BAD /* icon_sunny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_sunny@2x.png"; sourceTree = "<group>"; };
 		9B8B1F6CE0E34731BEFC820C /* libPods-WashingTimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WashingTimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1934FEA18B0130800ED4388 /* HWTCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTCommitCell.h; sourceTree = "<group>"; };
+		A1934FEB18B0130800ED4388 /* HWTCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTCommitCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +265,8 @@
 				7040E31D18AF6624005C7BAD /* HWTTimeLineEventCell.m */,
 				7040E31F18AF8DCF005C7BAD /* HWTTimeLineWeatherCell.h */,
 				7040E32018AF8DCF005C7BAD /* HWTTimeLineWeatherCell.m */,
+				A1934FEA18B0130800ED4388 /* HWTCommitCell.h */,
+				A1934FEB18B0130800ED4388 /* HWTCommitCell.m */,
 			);
 			name = Plan;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 			files = (
 				7040E31118AF4B2A005C7BAD /* HWTResultCell.m in Sources */,
 				7040E31818AF5EE4005C7BAD /* HWTPlanViewController.m in Sources */,
+				A1934FEC18B0130800ED4388 /* HWTCommitCell.m in Sources */,
 				7040E31E18AF6624005C7BAD /* HWTTimeLineEventCell.m in Sources */,
 				7040E31B18AF61A6005C7BAD /* HWTTimeLinePointView.m in Sources */,
 				7040E2D918AF0C66005C7BAD /* HWTAppDelegate.m in Sources */,
