@@ -134,6 +134,11 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [DejalBezelActivityView removeViewAnimated:YES];
 }
 
+- (NSArray *)addBadgeData:(NSArray *)sourceData {
+//    NSMutableArray *data = [NSMutableArray array];
+    return sourceData;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -197,8 +202,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (UISegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
         _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"早さ順",
-                                                                        @"楽さ順",
-                                                                        @"コスト順"]];
+                                                                        @"楽さ順",]];
         _segmentedControl.tintColor = UIColorFromRGB(0x73c6d3);
         _segmentedControl.selectedSegmentIndex = 0;
     }
