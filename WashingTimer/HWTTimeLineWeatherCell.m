@@ -1,19 +1,20 @@
 //
-//  HWTTimeLineCell.m
+//  HWTTimeLineWeatherCell.m
 //  WashingTimer
 //
 //  Created by yusuke on 2014/02/15.
 //  Copyright (c) 2014年 Himakan. All rights reserved.
 //
 
-#import "HWTTimeLineCell.h"
+#import "HWTTimeLineWeatherCell.h"
 
-@implementation HWTTimeLineCell
+@implementation HWTTimeLineWeatherCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        // Initialization code
     }
     return self;
 }

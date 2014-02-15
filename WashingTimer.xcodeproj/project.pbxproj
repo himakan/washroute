@@ -21,12 +21,17 @@
 		7040E2F218AF0C66005C7BAD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7040E2F018AF0C66005C7BAD /* InfoPlist.strings */; };
 		7040E2F418AF0C66005C7BAD /* WashingTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E2F318AF0C66005C7BAD /* WashingTimerTests.m */; };
 		7040E30318AF4358005C7BAD /* HWTResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E30218AF4358005C7BAD /* HWTResultViewController.m */; };
-		7040E30518AF43AB005C7BAD /* HWTResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7040E30418AF43AB005C7BAD /* HWTResultCell.xib */; };
 		7040E30918AF47D6005C7BAD /* icon_easy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7040E30718AF47D6005C7BAD /* icon_easy@2x.png */; };
 		7040E30A18AF47D6005C7BAD /* icon_fast@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7040E30818AF47D6005C7BAD /* icon_fast@2x.png */; };
 		7040E30C18AF48DC005C7BAD /* icon_disclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7040E30B18AF48DC005C7BAD /* icon_disclosure@2x.png */; };
 		7040E31118AF4B2A005C7BAD /* HWTResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E31018AF4B2A005C7BAD /* HWTResultCell.m */; };
-		7040E31518AF5B68005C7BAD /* HWTTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E31418AF5B68005C7BAD /* HWTTimeLineCell.m */; };
+		7040E31818AF5EE4005C7BAD /* HWTPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E31718AF5EE4005C7BAD /* HWTPlanViewController.m */; };
+		7040E31B18AF61A6005C7BAD /* HWTTimeLinePointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E31A18AF61A6005C7BAD /* HWTTimeLinePointView.m */; };
+		7040E31E18AF6624005C7BAD /* HWTTimeLineEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E31D18AF6624005C7BAD /* HWTTimeLineEventCell.m */; };
+		7040E32118AF8DCF005C7BAD /* HWTTimeLineWeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E32018AF8DCF005C7BAD /* HWTTimeLineWeatherCell.m */; };
+		7040E32318AF9C60005C7BAD /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7040E32218AF9C60005C7BAD /* logo@2x.png */; };
+		7040E32518AFA32D005C7BAD /* icon_time_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7040E32418AFA32D005C7BAD /* icon_time_arrow@2x.png */; };
+		BD37A5AC990B421996C36D7D /* libPods-WashingTimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B8B1F6CE0E34731BEFC820C /* libPods-WashingTimer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43F78E0F6F564C1D9F27EECA /* Pods-WashingTimer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WashingTimer.xcconfig"; path = "Pods/Pods-WashingTimer.xcconfig"; sourceTree = "<group>"; };
 		7040E2C518AF0C66005C7BAD /* WashingTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WashingTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7040E2C818AF0C66005C7BAD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7040E2CA18AF0C66005C7BAD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,14 +66,22 @@
 		7040E30018AF4209005C7BAD /* HWTDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWTDefines.h; sourceTree = "<group>"; };
 		7040E30118AF4358005C7BAD /* HWTResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTResultViewController.h; sourceTree = "<group>"; };
 		7040E30218AF4358005C7BAD /* HWTResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTResultViewController.m; sourceTree = "<group>"; };
-		7040E30418AF43AB005C7BAD /* HWTResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWTResultCell.xib; sourceTree = "<group>"; };
 		7040E30718AF47D6005C7BAD /* icon_easy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_easy@2x.png"; sourceTree = "<group>"; };
 		7040E30818AF47D6005C7BAD /* icon_fast@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_fast@2x.png"; sourceTree = "<group>"; };
 		7040E30B18AF48DC005C7BAD /* icon_disclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_disclosure@2x.png"; sourceTree = "<group>"; };
 		7040E30F18AF4B2A005C7BAD /* HWTResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTResultCell.h; sourceTree = "<group>"; };
 		7040E31018AF4B2A005C7BAD /* HWTResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTResultCell.m; sourceTree = "<group>"; };
-		7040E31318AF5B68005C7BAD /* HWTTimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTTimeLineCell.h; sourceTree = "<group>"; };
-		7040E31418AF5B68005C7BAD /* HWTTimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTTimeLineCell.m; sourceTree = "<group>"; };
+		7040E31618AF5EE4005C7BAD /* HWTPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTPlanViewController.h; sourceTree = "<group>"; };
+		7040E31718AF5EE4005C7BAD /* HWTPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTPlanViewController.m; sourceTree = "<group>"; };
+		7040E31918AF61A6005C7BAD /* HWTTimeLinePointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTTimeLinePointView.h; sourceTree = "<group>"; };
+		7040E31A18AF61A6005C7BAD /* HWTTimeLinePointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTTimeLinePointView.m; sourceTree = "<group>"; };
+		7040E31C18AF6624005C7BAD /* HWTTimeLineEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTTimeLineEventCell.h; sourceTree = "<group>"; };
+		7040E31D18AF6624005C7BAD /* HWTTimeLineEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTTimeLineEventCell.m; sourceTree = "<group>"; };
+		7040E31F18AF8DCF005C7BAD /* HWTTimeLineWeatherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTTimeLineWeatherCell.h; sourceTree = "<group>"; };
+		7040E32018AF8DCF005C7BAD /* HWTTimeLineWeatherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTTimeLineWeatherCell.m; sourceTree = "<group>"; };
+		7040E32218AF9C60005C7BAD /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		7040E32418AFA32D005C7BAD /* icon_time_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_time_arrow@2x.png"; sourceTree = "<group>"; };
+		9B8B1F6CE0E34731BEFC820C /* libPods-WashingTimer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WashingTimer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +92,7 @@
 				7040E2CB18AF0C66005C7BAD /* CoreGraphics.framework in Frameworks */,
 				7040E2CD18AF0C66005C7BAD /* UIKit.framework in Frameworks */,
 				7040E2C918AF0C66005C7BAD /* Foundation.framework in Frameworks */,
+				BD37A5AC990B421996C36D7D /* libPods-WashingTimer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +116,7 @@
 				7040E2ED18AF0C66005C7BAD /* WashingTimerTests */,
 				7040E2C718AF0C66005C7BAD /* Frameworks */,
 				7040E2C618AF0C66005C7BAD /* Products */,
+				43F78E0F6F564C1D9F27EECA /* Pods-WashingTimer.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +136,7 @@
 				7040E2CA18AF0C66005C7BAD /* CoreGraphics.framework */,
 				7040E2CC18AF0C66005C7BAD /* UIKit.framework */,
 				7040E2E718AF0C66005C7BAD /* XCTest.framework */,
+				9B8B1F6CE0E34731BEFC820C /* libPods-WashingTimer.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -190,6 +207,8 @@
 			children = (
 				7040E30118AF4358005C7BAD /* HWTResultViewController.h */,
 				7040E30218AF4358005C7BAD /* HWTResultViewController.m */,
+				7040E31618AF5EE4005C7BAD /* HWTPlanViewController.h */,
+				7040E31718AF5EE4005C7BAD /* HWTPlanViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -200,6 +219,8 @@
 				7040E30718AF47D6005C7BAD /* icon_easy@2x.png */,
 				7040E30818AF47D6005C7BAD /* icon_fast@2x.png */,
 				7040E30B18AF48DC005C7BAD /* icon_disclosure@2x.png */,
+				7040E32218AF9C60005C7BAD /* logo@2x.png */,
+				7040E32418AFA32D005C7BAD /* icon_time_arrow@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -216,7 +237,6 @@
 		7040E30E18AF4AF6005C7BAD /* Result */ = {
 			isa = PBXGroup;
 			children = (
-				7040E30418AF43AB005C7BAD /* HWTResultCell.xib */,
 				7040E30F18AF4B2A005C7BAD /* HWTResultCell.h */,
 				7040E31018AF4B2A005C7BAD /* HWTResultCell.m */,
 			);
@@ -226,8 +246,12 @@
 		7040E31218AF5ABE005C7BAD /* Plan */ = {
 			isa = PBXGroup;
 			children = (
-				7040E31318AF5B68005C7BAD /* HWTTimeLineCell.h */,
-				7040E31418AF5B68005C7BAD /* HWTTimeLineCell.m */,
+				7040E31918AF61A6005C7BAD /* HWTTimeLinePointView.h */,
+				7040E31A18AF61A6005C7BAD /* HWTTimeLinePointView.m */,
+				7040E31C18AF6624005C7BAD /* HWTTimeLineEventCell.h */,
+				7040E31D18AF6624005C7BAD /* HWTTimeLineEventCell.m */,
+				7040E31F18AF8DCF005C7BAD /* HWTTimeLineWeatherCell.h */,
+				7040E32018AF8DCF005C7BAD /* HWTTimeLineWeatherCell.m */,
 			);
 			name = Plan;
 			sourceTree = "<group>";
@@ -239,9 +263,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7040E2F718AF0C66005C7BAD /* Build configuration list for PBXNativeTarget "WashingTimer" */;
 			buildPhases = (
+				ED367B54DBE141B9A523E767 /* Check Pods Manifest.lock */,
 				7040E2C118AF0C66005C7BAD /* Sources */,
 				7040E2C218AF0C66005C7BAD /* Frameworks */,
 				7040E2C318AF0C66005C7BAD /* Resources */,
+				A0393631BD644F91A9BC5191 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -309,11 +335,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7040E30518AF43AB005C7BAD /* HWTResultCell.xib in Resources */,
 				7040E2E118AF0C66005C7BAD /* Images.xcassets in Resources */,
 				7040E2D318AF0C66005C7BAD /* InfoPlist.strings in Resources */,
 				7040E2DC18AF0C66005C7BAD /* Main.storyboard in Resources */,
 				7040E30C18AF48DC005C7BAD /* icon_disclosure@2x.png in Resources */,
+				7040E32518AFA32D005C7BAD /* icon_time_arrow@2x.png in Resources */,
+				7040E32318AF9C60005C7BAD /* logo@2x.png in Resources */,
 				7040E30A18AF47D6005C7BAD /* icon_fast@2x.png in Resources */,
 				7040E30918AF47D6005C7BAD /* icon_easy@2x.png in Resources */,
 			);
@@ -329,14 +356,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A0393631BD644F91A9BC5191 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-WashingTimer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED367B54DBE141B9A523E767 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7040E2C118AF0C66005C7BAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7040E31118AF4B2A005C7BAD /* HWTResultCell.m in Sources */,
+				7040E31818AF5EE4005C7BAD /* HWTPlanViewController.m in Sources */,
+				7040E31E18AF6624005C7BAD /* HWTTimeLineEventCell.m in Sources */,
+				7040E31B18AF61A6005C7BAD /* HWTTimeLinePointView.m in Sources */,
 				7040E2D918AF0C66005C7BAD /* HWTAppDelegate.m in Sources */,
-				7040E31518AF5B68005C7BAD /* HWTTimeLineCell.m in Sources */,
+				7040E32118AF8DCF005C7BAD /* HWTTimeLineWeatherCell.m in Sources */,
 				7040E30318AF4358005C7BAD /* HWTResultViewController.m in Sources */,
 				7040E2D518AF0C66005C7BAD /* main.m in Sources */,
 			);
@@ -462,6 +525,7 @@
 		};
 		7040E2F818AF0C66005C7BAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43F78E0F6F564C1D9F27EECA /* Pods-WashingTimer.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -475,6 +539,7 @@
 		};
 		7040E2F918AF0C66005C7BAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43F78E0F6F564C1D9F27EECA /* Pods-WashingTimer.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -547,6 +612,7 @@
 				7040E2F918AF0C66005C7BAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7040E2FA18AF0C66005C7BAD /* Build configuration list for PBXNativeTarget "WashingTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +621,7 @@
 				7040E2FC18AF0C66005C7BAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

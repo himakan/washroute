@@ -12,7 +12,9 @@
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
 @interface HWTResultViewController ()
-
+@property (nonatomic) UIImageView *logoView;
+@property (nonatomic) UILabel *startTimeLabel;
+@property (nonatomic) UISegmentedControl *segmentedControl;
 @end
 
 @implementation HWTResultViewController
@@ -32,12 +34,59 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // scrollViewの自動拡張をオフ
+    if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // ナビゲーションバーを削除
+    self.navigationItem.titleView = nil;
+    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]
+                                                  forBarMetrics:UIBarMetricsDefault];
+
+    // ナビゲーションバーの下線を削除する
+    for (UIView *view in self.navigationController.navigationBar.subviews) {
+        if ([NSStringFromClass([view class]) isEqualToString:@"_UINavigationBarBackground"]) {
+            for (UIView *subview in view.subviews) {
+                if ([subview isKindOfClass:[UIImageView class]]) {
+                    [subview removeFromSuperview];
+                    break;
+                }
+            }
+        }
+    }
+    
+    [self.tableView addSubview:self.logoView];
+    [self.tableView addSubview:self.startTimeLabel];
+    [self.tableView addSubview:self.segmentedControl];
+    self.tableView.contentInset = UIEdgeInsetsMake(195, 0, 0, 0);
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"H:m";
+    self.startTimeLabel.text = [NSString stringWithFormat:@"開始時刻 %@",
+                                [dateFormatter stringFromDate:[NSDate date]]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    CGRect f = self.logoView.frame;
+    f.origin.x = (self.view.bounds.size.width - f.size.width) / 2;
+    f.origin.y = -153;
+    self.logoView.frame = f;
+    
+    [self.startTimeLabel sizeToFit];
+    f = self.startTimeLabel.frame;
+    f.origin.x = (self.view.bounds.size.width - f.size.width) / 2;
+    f.origin.y = CGRectGetMaxY(self.logoView.frame) + 20;
+    self.startTimeLabel.frame = f;
+    
+    f = self.segmentedControl.frame;
+    f.origin.x = (self.view.bounds.size.width - f.size.width) / 2;
+    f.origin.y = CGRectGetMaxY(self.startTimeLabel.frame) + 20;
+    self.segmentedControl.frame = f;
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,55 +124,33 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     return 100.f;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+#pragma mark - Getter
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIImageView *)logoView {
+    if (!_logoView) {
+        _logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+    }
+    return _logoView;
 }
 
- */
+- (UILabel *)startTimeLabel {
+    if (!_startTimeLabel) {
+        _startTimeLabel = [UILabel new];
+        _startTimeLabel.backgroundColor = [UIColor clearColor];
+        _startTimeLabel.textColor = UIColorFromRGB(0x4e5a5b);
+    }
+    return _startTimeLabel;
+}
+
+- (UISegmentedControl *)segmentedControl {
+    if (!_segmentedControl) {
+        _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"早さ順",
+                                                                        @"楽さ順",
+                                                                        @"コスト順"]];
+        _segmentedControl.tintColor = UIColorFromRGB(0x73c6d3);
+        _segmentedControl.selectedSegmentIndex = 0;
+    }
+    return _segmentedControl;
+}
 
 @end

@@ -1,5 +1,5 @@
 //
-//  HWTTimeLineCell.h
+//  HWTTimeLineWeatherCell.h
 //  WashingTimer
 //
 //  Created by yusuke on 2014/02/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HWTTimeLineCell : UITableViewCell
+@interface HWTTimeLineWeatherCell : UITableViewCell
 
 @end
