@@ -8,6 +8,7 @@
 
 #import "HWTResultViewController.h"
 #import "HWTResultCell.h"
+#import <DejalActivityView/DejalActivityView.h>
 
 static NSString * const kCellIdentifier = @"CellIdentifier";
 
@@ -15,6 +16,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 @property (nonatomic) UIImageView *logoView;
 @property (nonatomic) UILabel *startTimeLabel;
 @property (nonatomic) UISegmentedControl *segmentedControl;
+@property (nonatomic) NSArray *plansData;
 @end
 
 @implementation HWTResultViewController
@@ -89,10 +91,36 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     self.segmentedControl.frame = f;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [NSTimer scheduledTimerWithTimeInterval:1.0f
+                                     target:self
+                                   selector:@selector(startLoading)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Private Methods
+
+- (void)startLoading {
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@"読み込み中..."];
+
+    [NSTimer scheduledTimerWithTimeInterval:3.0f
+                                     target:self
+                                   selector:@selector(endLoading)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
+- (void)endLoading {
+    [DejalActivityView removeView];
 }
 
 #pragma mark - Table view data source
@@ -106,7 +134,7 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return self.plansData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

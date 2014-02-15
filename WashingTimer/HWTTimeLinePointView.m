@@ -37,7 +37,7 @@
         UIBezierPath *rectPath = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:1.5f];
         CAShapeLayer *rectLayer = [CAShapeLayer layer];
         rectLayer.path = rectPath.CGPath;
-        rectLayer.fillColor = [UIColor darkGrayColor].CGColor;
+        rectLayer.fillColor = UIColorFromRGB(0x73c6d3).CGColor;
         [self.layer addSublayer:rectLayer];
         
         [self addSubview:self.label];
@@ -64,7 +64,7 @@
         
         CAShapeLayer *circleLayer = [CAShapeLayer layer];
         circleLayer.path = circlePath.CGPath;
-        circleLayer.strokeColor = [UIColor darkGrayColor].CGColor;
+        circleLayer.strokeColor = UIColorFromRGB(0x73c6d3).CGColor;
         circleLayer.fillColor = [UIColor whiteColor].CGColor;
         circleLayer.lineWidth = 2.0f;
         [self.layer addSublayer:circleLayer];

@@ -12,9 +12,6 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.eventBackgroundView.layer.borderWidth = 1.f;
-        self.eventBackgroundView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     }
     return self;
 }

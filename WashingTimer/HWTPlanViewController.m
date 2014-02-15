@@ -227,7 +227,7 @@
         rect.size.height = endCenter.y - endCell.pointView.bounds.size.height / 2 - rect.origin.y;
 
         UIView *lineView = [UIView new];
-        lineView.backgroundColor = [UIColor darkGrayColor];
+        lineView.backgroundColor = UIColorFromRGB(0x73c6d3);
         lineView.frame = rect;
         [self.tableView addSubview:lineView];
         [views addObject:lineView];

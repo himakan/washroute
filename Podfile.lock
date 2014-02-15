@@ -1,10 +1,19 @@
 PODS:
+  - DejalActivityView (1.2)
   - iOS-Hierarchy-Viewer (1.4.7)
+  - MKNetworkKit (0.87):
+    - Reachability (~> 3.1.0)
+  - Reachability (3.1.1)
 
 DEPENDENCIES:
+  - DejalActivityView
   - iOS-Hierarchy-Viewer
+  - MKNetworkKit
 
 SPEC CHECKSUMS:
+  DejalActivityView: 3a7f7a2be287c0f25f547762815c40709b02169c
   iOS-Hierarchy-Viewer: 62084744d884cc38b41f63bccc9afe0525b96840
+  MKNetworkKit: f174100f92473012138b6b1c3040266af8d43a14
+  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
 
 COCOAPODS: 0.29.0

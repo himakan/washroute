@@ -3,6 +3,8 @@
 
 target "WashingTimer" do
 	pod "iOS-Hierarchy-Viewer"
+	pod "DejalActivityView"
+	pod "MKNetworkKit"
 end
 
 target "WashingTimerTests" do
