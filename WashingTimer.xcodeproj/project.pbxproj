@@ -14,13 +14,19 @@
 		7040E2D518AF0C66005C7BAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E2D418AF0C66005C7BAD /* main.m */; };
 		7040E2D918AF0C66005C7BAD /* HWTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E2D818AF0C66005C7BAD /* HWTAppDelegate.m */; };
 		7040E2DC18AF0C66005C7BAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7040E2DA18AF0C66005C7BAD /* Main.storyboard */; };
-		7040E2DF18AF0C66005C7BAD /* HWTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E2DE18AF0C66005C7BAD /* HWTViewController.m */; };
 		7040E2E118AF0C66005C7BAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7040E2E018AF0C66005C7BAD /* Images.xcassets */; };
 		7040E2E818AF0C66005C7BAD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7040E2E718AF0C66005C7BAD /* XCTest.framework */; };
 		7040E2E918AF0C66005C7BAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7040E2C818AF0C66005C7BAD /* Foundation.framework */; };
 		7040E2EA18AF0C66005C7BAD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7040E2CC18AF0C66005C7BAD /* UIKit.framework */; };
 		7040E2F218AF0C66005C7BAD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7040E2F018AF0C66005C7BAD /* InfoPlist.strings */; };
 		7040E2F418AF0C66005C7BAD /* WashingTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E2F318AF0C66005C7BAD /* WashingTimerTests.m */; };
+		7040E30318AF4358005C7BAD /* HWTResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E30218AF4358005C7BAD /* HWTResultViewController.m */; };
+		7040E30518AF43AB005C7BAD /* HWTResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7040E30418AF43AB005C7BAD /* HWTResultCell.xib */; };
+		7040E30918AF47D6005C7BAD /* icon_easy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7040E30718AF47D6005C7BAD /* icon_easy@2x.png */; };
+		7040E30A18AF47D6005C7BAD /* icon_fast@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7040E30818AF47D6005C7BAD /* icon_fast@2x.png */; };
+		7040E30C18AF48DC005C7BAD /* icon_disclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7040E30B18AF48DC005C7BAD /* icon_disclosure@2x.png */; };
+		7040E31118AF4B2A005C7BAD /* HWTResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E31018AF4B2A005C7BAD /* HWTResultCell.m */; };
+		7040E31518AF5B68005C7BAD /* HWTTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7040E31418AF5B68005C7BAD /* HWTTimeLineCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +51,23 @@
 		7040E2D718AF0C66005C7BAD /* HWTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWTAppDelegate.h; sourceTree = "<group>"; };
 		7040E2D818AF0C66005C7BAD /* HWTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWTAppDelegate.m; sourceTree = "<group>"; };
 		7040E2DB18AF0C66005C7BAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7040E2DD18AF0C66005C7BAD /* HWTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWTViewController.h; sourceTree = "<group>"; };
-		7040E2DE18AF0C66005C7BAD /* HWTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWTViewController.m; sourceTree = "<group>"; };
 		7040E2E018AF0C66005C7BAD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7040E2E618AF0C66005C7BAD /* WashingTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WashingTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7040E2E718AF0C66005C7BAD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		7040E2EF18AF0C66005C7BAD /* WashingTimerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WashingTimerTests-Info.plist"; sourceTree = "<group>"; };
 		7040E2F118AF0C66005C7BAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7040E2F318AF0C66005C7BAD /* WashingTimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WashingTimerTests.m; sourceTree = "<group>"; };
+		7040E30018AF4209005C7BAD /* HWTDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWTDefines.h; sourceTree = "<group>"; };
+		7040E30118AF4358005C7BAD /* HWTResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTResultViewController.h; sourceTree = "<group>"; };
+		7040E30218AF4358005C7BAD /* HWTResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTResultViewController.m; sourceTree = "<group>"; };
+		7040E30418AF43AB005C7BAD /* HWTResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWTResultCell.xib; sourceTree = "<group>"; };
+		7040E30718AF47D6005C7BAD /* icon_easy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_easy@2x.png"; sourceTree = "<group>"; };
+		7040E30818AF47D6005C7BAD /* icon_fast@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_fast@2x.png"; sourceTree = "<group>"; };
+		7040E30B18AF48DC005C7BAD /* icon_disclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_disclosure@2x.png"; sourceTree = "<group>"; };
+		7040E30F18AF4B2A005C7BAD /* HWTResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTResultCell.h; sourceTree = "<group>"; };
+		7040E31018AF4B2A005C7BAD /* HWTResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTResultCell.m; sourceTree = "<group>"; };
+		7040E31318AF5B68005C7BAD /* HWTTimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTTimeLineCell.h; sourceTree = "<group>"; };
+		7040E31418AF5B68005C7BAD /* HWTTimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTTimeLineCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +127,12 @@
 		7040E2CE18AF0C66005C7BAD /* WashingTimer */ = {
 			isa = PBXGroup;
 			children = (
-				7040E2D718AF0C66005C7BAD /* HWTAppDelegate.h */,
-				7040E2D818AF0C66005C7BAD /* HWTAppDelegate.m */,
-				7040E2DA18AF0C66005C7BAD /* Main.storyboard */,
-				7040E2DD18AF0C66005C7BAD /* HWTViewController.h */,
-				7040E2DE18AF0C66005C7BAD /* HWTViewController.m */,
+				7040E2FD18AF41B0005C7BAD /* Storyboard */,
+				7040E2FE18AF41C4005C7BAD /* Global */,
+				7040E2FF18AF41CD005C7BAD /* View Controllers */,
+				7040E30D18AF4AD9005C7BAD /* View Hierarchy */,
 				7040E2E018AF0C66005C7BAD /* Images.xcassets */,
+				7040E30618AF47D6005C7BAD /* Resources */,
 				7040E2CF18AF0C66005C7BAD /* Supporting Files */,
 			);
 			path = WashingTimer;
@@ -150,6 +165,71 @@
 				7040E2F018AF0C66005C7BAD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7040E2FD18AF41B0005C7BAD /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7040E2DA18AF0C66005C7BAD /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		7040E2FE18AF41C4005C7BAD /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				7040E2D718AF0C66005C7BAD /* HWTAppDelegate.h */,
+				7040E2D818AF0C66005C7BAD /* HWTAppDelegate.m */,
+				7040E30018AF4209005C7BAD /* HWTDefines.h */,
+			);
+			name = Global;
+			sourceTree = "<group>";
+		};
+		7040E2FF18AF41CD005C7BAD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7040E30118AF4358005C7BAD /* HWTResultViewController.h */,
+				7040E30218AF4358005C7BAD /* HWTResultViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7040E30618AF47D6005C7BAD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7040E30718AF47D6005C7BAD /* icon_easy@2x.png */,
+				7040E30818AF47D6005C7BAD /* icon_fast@2x.png */,
+				7040E30B18AF48DC005C7BAD /* icon_disclosure@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7040E30D18AF4AD9005C7BAD /* View Hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				7040E30E18AF4AF6005C7BAD /* Result */,
+				7040E31218AF5ABE005C7BAD /* Plan */,
+			);
+			name = "View Hierarchy";
+			sourceTree = "<group>";
+		};
+		7040E30E18AF4AF6005C7BAD /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				7040E30418AF43AB005C7BAD /* HWTResultCell.xib */,
+				7040E30F18AF4B2A005C7BAD /* HWTResultCell.h */,
+				7040E31018AF4B2A005C7BAD /* HWTResultCell.m */,
+			);
+			name = Result;
+			sourceTree = "<group>";
+		};
+		7040E31218AF5ABE005C7BAD /* Plan */ = {
+			isa = PBXGroup;
+			children = (
+				7040E31318AF5B68005C7BAD /* HWTTimeLineCell.h */,
+				7040E31418AF5B68005C7BAD /* HWTTimeLineCell.m */,
+			);
+			name = Plan;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +309,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7040E30518AF43AB005C7BAD /* HWTResultCell.xib in Resources */,
 				7040E2E118AF0C66005C7BAD /* Images.xcassets in Resources */,
 				7040E2D318AF0C66005C7BAD /* InfoPlist.strings in Resources */,
 				7040E2DC18AF0C66005C7BAD /* Main.storyboard in Resources */,
+				7040E30C18AF48DC005C7BAD /* icon_disclosure@2x.png in Resources */,
+				7040E30A18AF47D6005C7BAD /* icon_fast@2x.png in Resources */,
+				7040E30918AF47D6005C7BAD /* icon_easy@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,8 +334,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7040E31118AF4B2A005C7BAD /* HWTResultCell.m in Sources */,
 				7040E2D918AF0C66005C7BAD /* HWTAppDelegate.m in Sources */,
-				7040E2DF18AF0C66005C7BAD /* HWTViewController.m in Sources */,
+				7040E31518AF5B68005C7BAD /* HWTTimeLineCell.m in Sources */,
+				7040E30318AF4358005C7BAD /* HWTResultViewController.m in Sources */,
 				7040E2D518AF0C66005C7BAD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

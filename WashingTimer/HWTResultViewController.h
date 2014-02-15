@@ -1,5 +1,5 @@
 //
-//  HWTViewController.h
+//  HWTResultViewController.h
 //  WashingTimer
 //
 //  Created by yusuke on 2014/02/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HWTViewController : UIViewController
+@interface HWTResultViewController : UITableViewController
 
 @end
