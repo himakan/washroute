@@ -60,20 +60,19 @@
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
     [super setHighlighted:highlighted animated:animated];
-    if (highlighted) {
-        [self applySelectedColorBackgroundView];
-    }
+    [self applySelectedColorSubviews:highlighted animated:animated];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    if (selected) {
-        [self applySelectedColorBackgroundView];
-    }
+    [self applySelectedColorSubviews:selected animated:animated];
 }
 
-- (void)applySelectedColorBackgroundView {
-    self.resultBackgroundView.backgroundColor = UIColorFromRGB(0x71999d);
+- (void)applySelectedColorSubviews:(BOOL)selected animated:(BOOL)animated {
+    [UIView animateWithDuration:(animated ? 0.3f : 0) animations:^{
+        self.resultBackgroundView.backgroundColor = selected ? UIColorFromRGB(0x71999d) : UIColorFromRGB(0xc2dbde);
+        self.verticalLineView.backgroundColor = selected ? [UIColor lightGrayColor] : [UIColor whiteColor];
+    }];
 }
 
 #pragma mark - Getter

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeEndLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeIntervalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *routeLabel;
+@property (weak, nonatomic) IBOutlet UIView *verticalLineView;
 
 @property (nonatomic) BOOL showsFastIcon;
 @property (nonatomic) BOOL showsEasyIcon;

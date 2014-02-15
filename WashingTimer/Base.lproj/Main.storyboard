@@ -84,6 +84,7 @@
                                     <outlet property="timeEndLabel" destination="iHI-3g-EEp" id="4lF-qv-rkI"/>
                                     <outlet property="timeIntervalLabel" destination="fs9-Mv-IGX" id="Yh5-Dv-ctC"/>
                                     <outlet property="timeStartLabel" destination="1yS-HK-VDp" id="Tj2-OQ-GMt"/>
+                                    <outlet property="verticalLineView" destination="p6e-zH-R0u" id="Iws-i1-woz"/>
                                     <segue destination="c46-7w-dgn" kind="push" id="g7e-Ee-0V7"/>
                                 </connections>
                             </tableViewCell>
