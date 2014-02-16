@@ -573,7 +573,7 @@
 				GCC_PREFIX_HEADER = "WashingTimer/WashingTimer-Prefix.pch";
 				INFOPLIST_FILE = "WashingTimer/WashingTimer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FE701ECF-EBF5-418F-9D3C-A66EAA6BB0BC";
+				PROVISIONING_PROFILE = "A960F29E-0DC3-4E4C-98A1-9359CD1081BE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
