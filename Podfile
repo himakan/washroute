@@ -2,7 +2,7 @@
 # platform :ios, "6.0"
 
 target "WashingTimer" do
-	pod "iOS-Hierarchy-Viewer"
+	# pod "iOS-Hierarchy-Viewer"
 	pod "DejalActivityView"
 	pod "MKNetworkKit"
 	pod "iOS-blur"

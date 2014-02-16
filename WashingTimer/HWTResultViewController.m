@@ -70,10 +70,6 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     [self.tableView addSubview:self.segmentedControl];
     self.tableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
     
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    dateFormatter.dateFormat = @"H:m";
-    self.startTimeLabel.text = [NSString stringWithFormat:@"開始時刻 %@",
-                                [dateFormatter stringFromDate:[NSDate date]]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -83,6 +79,11 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     f.origin.x = (self.view.bounds.size.width - f.size.width) / 2;
     f.origin.y = -170;
     self.logoView.frame = f;
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"H:m";
+    self.startTimeLabel.text = [NSString stringWithFormat:@"開始時刻 %@",
+                                [dateFormatter stringFromDate:[NSDate date]]];
     
     [self.startTimeLabel sizeToFit];
     f = self.startTimeLabel.frame;
