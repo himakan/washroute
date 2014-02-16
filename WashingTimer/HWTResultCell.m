@@ -90,7 +90,7 @@
 
 - (void)applySelectedColorSubviews:(BOOL)selected animated:(BOOL)animated {
     [UIView animateWithDuration:(animated ? 0.3f : 0) animations:^{
-        self.resultBackgroundView.backgroundColor = selected ? UIColorFromRGB(0x71999d) : UIColorFromRGB(0xc2dbde);
+        self.resultBackgroundView.backgroundColor = selected ? UIColorFromRGB(0x9cced3) : UIColorFromRGB(0xc7eef2);
         self.verticalLineView.backgroundColor = selected ? [UIColor lightGrayColor] : [UIColor whiteColor];
     }];
 }
