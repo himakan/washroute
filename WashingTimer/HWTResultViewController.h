@@ -10,4 +10,6 @@
 
 @interface HWTResultViewController : UITableViewController
 
+- (IBAction)reloadButtonTapped:(id)sender;
+
 @end

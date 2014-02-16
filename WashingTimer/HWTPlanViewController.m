@@ -14,7 +14,12 @@
 #import "HWTTimeLineWeatherCell.h"
 #import "HWTCommitCell.h"
 
+#import <MKNetworkKit/MKNetworkKit.h>
+
 @interface HWTPlanViewController ()
+<
+UIAlertViewDelegate
+>
 @property (nonatomic) AMBlurView *navigationBackgroundView;
 @property (nonatomic) NSArray *verticalLineViews;
 @property (nonatomic) NSArray *timelineData;
@@ -147,6 +152,9 @@
     if (indexPath.section == 1) {
         HWTCommitCell *cell = [tableView dequeueReusableCellWithIdentifier:kCommitCellIdentifier
                                                               forIndexPath:indexPath];
+        [cell.commitButton addTarget:self
+                              action:@selector(commitButtonTapped:)
+                    forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     
@@ -214,60 +222,25 @@
     }
 }
 
-#pragma mark - UITableView Delegate
-
 #pragma mark - Private Methods
 
-//- (void)drawVerticalEventLines {
-//    
-//    HWTTimeLineEventCell *beginCell = nil;
-//    CGRect beginCellRect = CGRectZero;
-//    
-//    if (self.verticalLineViews) {
-//        for (UIView *lineView in self.verticalLineViews) {
-//            [lineView removeFromSuperview];
-//        }
-//    }
-//    
-//    NSMutableArray *views = [NSMutableArray array];
-//    
-//    for (NSInteger i = 0, len = [self.tableView numberOfRowsInSection:0]; i < len; i++) {
-//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-//        HWTTimeLineEventCell *cell = (HWTTimeLineEventCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-//        if (![cell isMemberOfClass:[HWTTimeLineEventCell class]]) {
-//            continue;
-//        }
-//        
-//        if (!beginCell) {
-//            beginCell = cell;
-//            beginCellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-//            continue;
-//        }
-//        
-//        HWTTimeLineEventCell *endCell = cell;
-//        CGRect rect = CGRectZero;
-//        CGPoint beginCenter = [beginCell convertPoint:beginCell.pointView.center toView:beginCell];
-//        beginCenter.y += beginCellRect.origin.y;
-//        
-//        CGRect endCellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-//        CGPoint endCenter = [endCell convertPoint:endCell.pointView.center toView:endCell];
-//        endCenter.y += endCellRect.origin.y;
-//        
-//        rect.origin.x = beginCenter.x - 2;
-//        rect.size.width = 4;
-//        rect.origin.y = beginCenter.y + beginCell.pointView.bounds.size.height / 2;
-//        rect.size.height = endCenter.y - endCell.pointView.bounds.size.height / 2 - rect.origin.y;
-//
-//        UIView *lineView = [UIView new];
-//        lineView.backgroundColor = UIColorFromRGB(0x73c6d3);
-//        lineView.frame = rect;
-//        [self.tableView addSubview:lineView];
-//        [views addObject:lineView];
-//        
-//        beginCell = endCell;
-//        beginCellRect = endCellRect;
-//    }
-//    self.verticalLineViews = views;
-//}
+- (void)commitButtonTapped:(id)sender {
+    [[[UIAlertView alloc] initWithTitle:nil
+                                message:@"洗濯物が乾いたようです。\n取り込みますか？"
+                               delegate:self
+                      cancelButtonTitle:@"いいえ"
+                      otherButtonTitles:@"はい", nil] show];
+}
+
+#pragma mark - UIAlertView Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.cancelButtonIndex == buttonIndex) {
+        return;
+    }
+    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:@"ca54mac2.local:5000"];
+    MKNetworkOperation *op = [engine operationWithPath:@"selenoid"];
+    [engine enqueueOperation:op];
+}
 
 @end

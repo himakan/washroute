@@ -114,14 +114,18 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 - (void)startLoading {
     [DejalBezelActivityView activityViewForView:self.view withLabel:@"読み込み中..."];
 
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"H:m";
+    self.startTimeLabel.text = [NSString stringWithFormat:@"開始時刻 %@",
+                                [dateFormatter stringFromDate:[NSDate date]]];
     
     MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:@"wu-tang.sakura.ne.jp"];
-    MKNetworkOperation *op = [engine operationWithPath:@"/ohd/washRoute.php"];
+    MKNetworkOperation *op = [engine operationWithPath:@"ohd/washRoute.php"];
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
         [self endLoading];
         
         NSDictionary *result = [completedOperation responseJSON];
-        self.plansData = result[@"plans"];
+        self.plansData = [self addBadgeData:result[@"plans"]];
         [self.tableView reloadData];
         
     } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
@@ -135,8 +139,68 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (NSArray *)addBadgeData:(NSArray *)sourceData {
-//    NSMutableArray *data = [NSMutableArray array];
-    return sourceData;
+    NSMutableArray *data = [NSMutableArray array];
+    
+    if (sourceData.count == 0) {
+        return sourceData;
+    }
+    
+    NSDictionary *mostEasyPlan, *mostFastPlan;
+    
+    for (NSDictionary *plan in sourceData) {
+        if (!mostFastPlan && !mostFastPlan) {
+            mostFastPlan = plan;
+            mostEasyPlan = plan;
+            continue;
+        }
+        if ([mostEasyPlan[@"events"] count] < [plan[@"events"] count]) {
+            mostEasyPlan = plan;
+        }
+        
+        if ([mostFastPlan[@"endTime"] doubleValue] - [mostFastPlan[@"beginTime"] doubleValue] >
+            [plan[@"endTime"] doubleValue] - [plan[@"beginTime"] doubleValue]) {
+            
+            mostFastPlan = plan;
+        }
+    }
+    
+    for (NSDictionary *plan in sourceData) {
+        NSMutableDictionary *mplan = [plan mutableCopy];
+        if (mostFastPlan == plan) {
+            mplan[@"fast"] = @YES;
+        }
+        if (mostFastPlan == plan) {
+            mplan[@"easy"] = @YES;
+        }
+        [data addObject:mplan];
+    }
+    
+    DLog(@"data = %@", data);
+    return data;
+}
+
+- (void)segmentedControlChanged:(UISegmentedControl *)control {
+    if (control.selectedSegmentIndex == 0) {
+        self.plansData = [self.plansData sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1,
+                                                                                        NSDictionary *obj2) {
+            if ([obj1[@"endTime"] doubleValue] - [obj1[@"beginTime"] doubleValue] >
+                [obj2[@"endTime"] doubleValue] - [obj2[@"beginTime"] doubleValue]) {
+                return NSOrderedAscending;
+            } else {
+                return NSOrderedDescending;
+            }
+        }];
+    } else {
+        self.plansData = [self.plansData sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1,
+                                                                                        NSDictionary *obj2) {
+            if ([obj1[@"events"] count] < [obj2[@"events"] count]) {
+                return NSOrderedAscending;
+            } else {
+                return NSOrderedDescending;
+            }
+        }];
+    }
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -171,8 +235,10 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     NSInteger hour = (NSInteger)(duration / 60.f / 60.f);
     cell.timeIntervalLabel.text = [NSString stringWithFormat:@"%@hour", @(hour)];
     
-    cell.showsFastIcon = YES;
-    cell.showsEasyIcon = YES;
+    cell.showsFastIcon = [data[@"fast"] boolValue];
+    cell.showsEasyIcon = [data[@"easy"] boolValue];
+    
+    cell.routeLabel.text = [data[@"events"] lastObject][@"title"];
     
     return cell;
 }
@@ -205,6 +271,9 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
                                                                         @"楽さ順",]];
         _segmentedControl.tintColor = UIColorFromRGB(0x73c6d3);
         _segmentedControl.selectedSegmentIndex = 0;
+        [_segmentedControl addTarget:self
+                              action:@selector(segmentedControlChanged:)
+                    forControlEvents:UIControlEventValueChanged];
     }
     return _segmentedControl;
 }
@@ -221,6 +290,10 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
         planViewController.title = [NSString stringWithFormat:@"プラン%@", @(indexPath.row + 1)];
         planViewController.eventsData = data[@"events"];
     }
+}
+
+- (IBAction)reloadButtonTapped:(id)sender {
+    [self startLoading];
 }
 
 @end
