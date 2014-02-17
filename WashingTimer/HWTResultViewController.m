@@ -144,42 +144,50 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
 }
 
 - (NSArray *)addBadgeData:(NSArray *)sourceData {
-    NSMutableArray *data = [NSMutableArray array];
     
     if (sourceData.count == 0) {
         return sourceData;
     }
     
+    NSMutableArray *sourceDataMutable = [NSMutableArray array];
     NSDictionary *mostEasyPlan, *mostFastPlan;
     
     for (NSDictionary *plan in sourceData) {
+        NSMutableDictionary *mutablePlan = [plan mutableCopy];
+        [sourceDataMutable addObject:mutablePlan];
+        
+        if ([mutablePlan[@"endTime"] isEqual:[NSNull null]]) {
+            mutablePlan[@"endTime"] = [mutablePlan[@"events"] lastObject][@"finishTime"];
+        }
+
         if (!mostFastPlan && !mostFastPlan) {
-            mostFastPlan = plan;
-            mostEasyPlan = plan;
+            mostFastPlan = mutablePlan;
+            mostEasyPlan = mutablePlan;
             continue;
         }
-        if ([mostEasyPlan[@"events"] count] > [plan[@"events"] count]) {
-            mostEasyPlan = plan;
+        
+        if ([mostEasyPlan[@"events"] count] > [mutablePlan[@"events"] count]) {
+            mostEasyPlan = mutablePlan;
         }
         
         if ([mostFastPlan[@"endTime"] doubleValue] - [mostFastPlan[@"beginTime"] doubleValue] >
-            [plan[@"endTime"] doubleValue] - [plan[@"beginTime"] doubleValue]) {
-            mostFastPlan = plan;
+            [mutablePlan[@"endTime"] doubleValue] - [mutablePlan[@"beginTime"] doubleValue]) {
+            mostFastPlan = mutablePlan;
         }
     }
     
-    for (NSDictionary *plan in sourceData) {
-        NSMutableDictionary *mplan = [plan mutableCopy];
+    for (NSMutableDictionary *plan in sourceDataMutable) {
         if ([mostFastPlan isEqual:plan]) {
-            mplan[@"fast"] = @YES;
+            plan[@"fast"] = @YES;
         }
         if ([mostEasyPlan isEqual:plan]) {
-            mplan[@"easy"] = @YES;
+            plan[@"easy"] = @YES;
         }
-        [data addObject:mplan];
     }
+    
+    DLog(@"sourceDataMutable = %@", sourceDataMutable);
 
-    return data;
+    return sourceDataMutable;
 }
 
 - (void)segmentedControlChanged:(UISegmentedControl *)control {
@@ -259,7 +267,11 @@ static NSString * const kCellIdentifier = @"CellIdentifier";
     cell.showsFastIcon = [data[@"fast"] boolValue];
     cell.showsEasyIcon = [data[@"easy"] boolValue];
     
-    cell.routeLabel.text = data[@"events"][1][@"title"];
+    if ([data[@"events"] count] > 1) {
+        cell.routeLabel.text = data[@"events"][1][@"title"];
+    } else {
+        cell.routeLabel.text = [data[@"events"] lastObject][@"title"];
+    }
     
     return cell;
 }
